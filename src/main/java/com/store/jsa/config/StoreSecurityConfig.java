@@ -16,11 +16,11 @@ public class StoreSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("customer1").password(passwordEncoder().encode("abc123")).roles("USER")
+                .withUser("customer1").password(passwordEncoder().encode("abc123"))
                 .and()
-                .withUser("customer2").password(passwordEncoder().encode("user2Pass")).roles("USER")
+                .withUser("customer2").password(passwordEncoder().encode("xyz321"))
                 .and()
-                .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
+                .withUser("admin").password(passwordEncoder().encode("adminPass"));
     }
 
     @Override
@@ -30,7 +30,7 @@ public class StoreSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/login*").permitAll()
-                .antMatchers("/css/**", "/fonts/**", "/images/**", "/js/**", "/vendor/**").permitAll()
+                .antMatchers("/css/**", "/fonts/**", "/images/**", "/js/**", "/vendor/**", "/w3images/**").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
