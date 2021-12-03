@@ -16,11 +16,11 @@ public class StoreSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("customer1").password(passwordEncoder().encode("abc123"))
+                .withUser("customer1").password(passwordEncoder().encode("abc123")).roles("USER")
                 .and()
-                .withUser("customer2").password(passwordEncoder().encode("xyz321"))
+                .withUser("customer2").password(passwordEncoder().encode("xyz321")).roles("USER")
                 .and()
-                .withUser("admin").password(passwordEncoder().encode("adminPass"));
+                .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
     }
 
     @Override
