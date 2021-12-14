@@ -22,7 +22,7 @@ public class DatabaseDao {
     
 
     public List<Product> getAllProducts() {
-        return jdbc.query(Queries.GET_ALL_CUSTOMERS, Product.mapper);
+        return jdbc.query(Queries.GET_ALL_PRODUCTS, Product.mapper);
     }
 
     public Product getProductColor(String c) {
@@ -77,6 +77,10 @@ public class DatabaseDao {
         return jdbc.query(Queries.GET_ALL_CUSTOMERS, Customer.mapper);
     }
 
+    public List<CartEntry> getCustomerCart(int customerId) {
+        return jdbc.query(Queries.GET_CART_BY_CUSTOMERID, CartEntry.mapper);
+    }
+
     public void insertEmployee(Employee e) {
         jdbc.update(Queries.INSERT_EMPLOYEE, e.getEmployeeId(), e.getEmpFname(), e.getEmpLname(), e.getEmpDOB(), e.getEmpGender(), e.getEmpPhone(), e.getEmpAddr());
     }
@@ -87,5 +91,13 @@ public class DatabaseDao {
 
     public void addToCart(CartEntry c) {
         jdbc.update(Queries.INSERT_TO_CART, c.getCustomerId(), c.getProductId());
+    }
+
+    public void makeSale(int customerId, int productId, int employeeId, String saleType) {
+        jdbc.update(Queries.MAKE_SALE, customerId, productId, employeeId, saleType);
+    }
+
+    public void makeDiscountSale(int customerId, int productId, int employeeId, String discCode, String saleType) {
+        jdbc.update(Queries.MAKE_DISCOUNT_SALE, customerId, productId, employeeId, discCode, saleType);
     }
 }

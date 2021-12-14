@@ -2,7 +2,7 @@ package com.store.jsa.mysql;
 
 public class Queries {
     
-    public static String GET_ALL_PRODUCTS = "SELECT * FROM PRODUCT JOIN CLOTHING USING (PROD_ID) JOIN ACCESSORIES USING(PROD_ID) JOIN BRANDS USING(PROD_ID);";
+    public static String GET_ALL_PRODUCTS = "SELECT * FROM PRODUCT LEFT JOIN CLOTHING USING (PROD_ID) LEFT JOIN ACCESSORIES USING(PROD_ID) LEFT JOIN BRANDS USING(BRAND_ID);";
 
     public static String GET_PRODUCTS_BY_ = "";
 
@@ -29,6 +29,10 @@ public class Queries {
     public static String INSERT_EMPLOYEE = "INSERT INTO EMPLOYEES VALUES (?, ?, ?, ?, ?', ?, ?);";
 
     public static String INSERT_TO_CART = "INSERT INTO CART VALUES (?, ?);";
+
+    public static String MAKE_SALE = "CALL make_sale(?, ?, ?, ?)";
+
+    public static String MAKE_DISCOUNT_SALE = "CALL make_sale_with_discount(?, ?, ?, ?, ?)";
 
 
 }
