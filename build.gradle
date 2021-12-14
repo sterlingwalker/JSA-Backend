@@ -6,10 +6,15 @@ plugins {
 
 apply plugin: 'application'
 
+application {
+	mainClass = 'com.store.jsa.JsaApplication'
+}
+
+
 mainClassName = 'com.store.jsa.JsaApplication'
 
 group = 'com.store'
-version = '0.0.1'
+version = '0.1.0'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -23,8 +28,7 @@ repositories {
 }
 
 jar {
-    archiveBaseName = 'jsa-store'
-    archiveVersion =  '0.1.0'
+    enabled = false
 }
 
 dependencies {
