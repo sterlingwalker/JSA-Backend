@@ -9,8 +9,8 @@ apply plugin: 'application'
 mainClassName = 'com.store.jsa.JsaApplication'
 
 group = 'com.store'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+version = '0.0.1'
+sourceCompatibility = '1.8'
 
 configurations {
 	compileOnly {
@@ -22,6 +22,10 @@ repositories {
 	mavenCentral()
 }
 
+jar {
+    archiveBaseName = 'jsa-store'
+    archiveVersion =  '0.1.0'
+}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
