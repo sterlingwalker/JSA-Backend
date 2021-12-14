@@ -30,7 +30,7 @@ public class StoreSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/login*").permitAll()
-                .antMatchers("/css/**", "/fonts/**", "/images/**", "/js/**", "/vendor/**", "/w3images/**").permitAll()
+                .antMatchers("/css/**", "/fonts/**", "/images/**", "/js/**", "/plugins/**").permitAll()
                 .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
