@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.store.jsa.models.CartEntry;
 import com.store.jsa.models.Customer;
+import com.store.jsa.models.Discount;
 import com.store.jsa.models.Employee;
 import com.store.jsa.models.InventoryEntry;
 import com.store.jsa.models.PayrollEntry;
@@ -87,10 +88,16 @@ public class StoreController {
         return databaseDao.getAllCustomers();
     }
 
-    @GetMapping("/cart")
+    @GetMapping("/customercart")
     @ResponseBody
     public List<CartEntry> getCustomerCart(@RequestParam int customerId) {
         return databaseDao.getCustomerCart(customerId);
+    }
+
+    @GetMapping("/discount")
+    @ResponseBody
+    public List<Discount> getAllDiscounts() {
+        return databaseDao.getAllDiscounts();
     }
 
     @PostMapping("/employee")
