@@ -32,7 +32,7 @@ public class StoreSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login*").permitAll()
                 .antMatchers("/css/**", "/fonts/**", "/images/**", "/js/**", "/plugins/**").permitAll()
                 .antMatchers("/").permitAll()
-                .anyRequest().authenticated()
+                //.anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
