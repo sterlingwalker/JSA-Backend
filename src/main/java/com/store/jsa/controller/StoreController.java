@@ -125,8 +125,8 @@ public class StoreController {
     }
 
     @PostMapping("/addToCart")
-    @ResponseBody
-    public void addProductToCart(@RequestParam int customerId, @RequestParam int productId) {
+    public String addProductToCart(@RequestParam int customerId, @RequestParam int productId) {
         databaseDao.addToCart(CartEntry.builder().customerId(customerId).productId(productId).build());
+        return "cart.html";
     }
 }
